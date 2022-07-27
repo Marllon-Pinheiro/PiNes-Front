@@ -1,0 +1,11 @@
+<section class="las text-center bg-light col-12">
+  <div *ngFor="let produto of produtos">
+    <img [src]="produto.imagem" alt="" />
+    <h2 class="text-danger">{{ produto.name }}</h2>
+    <p>{{ produto.descricao }}</p>
+    <h4>{{ produto.preco | currency: "BRL" }}</h4>
+    <a routerLink="{{ produto.id }}"
+      ><button class="btn btn-success">Comprar</button></a
+    >
+  </div>
+</section>

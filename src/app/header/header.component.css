@@ -1,0 +1,13 @@
+header{
+  background-color: #61A7C6;
+}
+h1, li{
+  color: #fff;
+  cursor: pointer;
+}
+.badge-carrinho {
+  background-color: gray;
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: white;
+}
