@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { iProduto, produtos } from './produtos';
+import { iProduto } from './produtos';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
+  private apiServerUrl = environment.apiBaseUrl;
 
-  produtos: iProduto[] = produtos;
+  constructor(
+    private httpClient: HttpClient,
+  ) { }
 
-  constructor() { }
-
-  getAll() {
-   return this.produtos;
-  }
-
-  getOne(produtoId: number) {
-    return this.produtos.find(produto => produto.id == produtoId);
-  }
+  
+  
 }

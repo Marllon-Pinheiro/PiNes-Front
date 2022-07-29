@@ -1,9 +1,9 @@
 <section class="card-body bg-light d-flex">
-  <img class="figure p-2" [src]="produto?.imagem" alt="" />
+  <img class="figure p-2" [src]="" alt="" />
   <div class="card-body card">
     <h3>{{ produto?.name }}</h3>
-    <p>{{ produto?.descricao }}</p>
-    <h4>{{ produto?.preco | currency: "BRL" }}</h4>
+    <p>{{ produto?.description }}</p>
+    <h4>{{ produto?.price | currency: "BRL" }}</h4>
     <label for="quantity">Quantidade:</label>
     <input name="quantity" type="number" placeholder="" /><br />
     <button class="btn btn-success">Adicionar ao carrinho</button>
