@@ -44,8 +44,9 @@ img {
 }
 
 input {
-  width: 30px;
+  width: 2.6rem;
   text-align: center;
+  border: none;
 }
 
 .buy-button {

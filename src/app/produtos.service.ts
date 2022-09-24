@@ -15,6 +15,8 @@ export class ProdutosService {
     private httpClient: HttpClient,
   ) { }
 
-  
+  public addProducts(produto: iProduto): Observable<iProduto> {
+    return this.httpClient.post<iProduto>(`${this.apiServerUrl}/products/new-product`, produto);
+  }
   
 }

@@ -2,27 +2,50 @@
   <nav
     class="navbar navbar-expand-lg navbar-light d-flex justify-content-around"
   >
-    <h1 routerLink="/">PiNes</h1>
-    <form class="form-inline my-2 my-lg-0">
+    <h1 routerLink="/produtos">PiNes</h1>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="search()">
       <button class="btn btn-primary mr-1" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
-      <input class="form-control" type="search" placeholder="Search" />
+      <input
+        name="name"
+        [(ngModel)]="name"
+        class="form-control"
+        type="text"
+        placeholder="Search"
+      />
     </form>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="text-light mr-2" routerLink="/carrinho">
+        <a *ngIf="hasToken" class="text-light mr-3"
+          >Seja bem-vindo | {{ username }}</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a *ngIf="hasToken" class="text-light mr-2" routerLink="/carrinho">
           <i class="fa-solid fa-cart-shopping"></i
           ><span class="badge-carrinho ml-1 mr-1">0</span></a
         >
       </li>
+
       <li class="nav-item">
-        <a class="text-light mr-3" routerLink="/new-product">New Product</a>
+        <a *ngIf="hasToken" class="text-light mr-3" routerLink="/new-product"
+          >New Product</a
+        >
       </li>
+
       <li class="nav-item">
+        <a (click)="logout()" *ngIf="hasToken" class="text-light mr-3"
+          >Logout</a
+        >
+      </li>
+
+      <li *ngIf="!hasToken" class="nav-item">
         <a class="text-light" routerLink="/login">Sign in</a>
       </li>
-      <li class="nav-item">
+
+      <li *ngIf="!hasToken" class="nav-item">
         <a class="text-light ml-3" routerLink="/register">Register</a>
       </li>
     </ul>

@@ -1,11 +1,19 @@
-<section class="card-body bg-light d-flex">
-  <img class="figure p-2" [src]="" alt="" />
+<section class="card-body bg-light d-flex flex-wrap">
+  <img class="figure p-2" [src]="produto?.uriImg" alt="" />
   <div class="card-body card">
-    <h3>{{ produto?.name }}</h3>
+    <h3 class="text-danger">{{ produto?.name }}</h3>
     <p>{{ produto?.description }}</p>
     <h4>{{ produto?.price | currency: "BRL" }}</h4>
+    <p>{{ produto?.id }}</p>
     <label for="quantity">Quantidade:</label>
-    <input name="quantity" type="number" placeholder="" /><br />
-    <button class="btn btn-success">Adicionar ao carrinho</button>
+    <input
+      name="amount"
+      type="number"
+      placeholder=""
+      [(ngModel)]="quantidade"
+    /><br />
+    <button (click)="addCart()" class="btn btn-success">
+      Adicionar ao carrinho
+    </button>
   </div>
 </section>

@@ -3,44 +3,64 @@
     <h1 class="display-4">Add new product</h1>
   </div>
   <div class="card mt-3">
-    <form action="" class="card-body">
+    <form
+      #addForm="ngForm"
+      (ngSubmit)="addProduct(addForm)"
+      class="product-form card-body"
+      method="post"
+    >
       <div class="form-group">
-        <label for="nameproduct">Name</label>
+        <label for="name">Name</label>
         <input
+          ngModel
           class="form-control"
-          name="nameproduct"
+          name="name"
           type="text"
-          placeholder="Name product"
+          placeholder="Your product name"
+          required
         />
       </div>
       <div class="form-group">
-        <label for="Products_description">Description</label>
+        <label for="description">Description</label>
         <input
+          ngModel
           class="form-control"
-          name="Products_description"
+          name="description"
           type="text"
           placeholder="Product's description"
+          required
         />
       </div>
       <div class="form-group">
-        <label for="imageUrl">Image</label>
+        <label for="uriImg">Image</label>
         <input
+          ngModel
           class="form-control"
-          name="imageUrl"
-          type="text"
+          name="uriImg"
+          type="url"
           placeholder="Image url"
+          required
         />
       </div>
       <div>
         <label for="price">Price</label>
         <input
+          ngModel
           class="form-control"
           name="price"
           type="text"
           placeholder="Product's price"
+          currencyMask
+          required
         />
       </div>
-      <button class="btn btn-primary mt-2">Register Product</button>
+      <button
+        [disabled]="addForm.invalid"
+        type="submit"
+        class="btn btn-primary mt-2"
+      >
+        Register Product
+      </button>
     </form>
   </div>
 </div>
